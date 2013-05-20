@@ -44,6 +44,25 @@ $green: #1F991C;
 $blue: #3C67D6;
 
 /****************************************************************
+* JQuery Mobile Overrides
+****************************************************************/
+
+.ui-content {
+	padding: 0;
+}
+
+.ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-reveal, .ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-push, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-reveal, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-push {
+	-webkit-transform: translate3d(-25.5em,0,0);
+	   -moz-transform: translate3d(-25.5em,0,0);
+	   		transform: translate3d(-25.5em,0,0);
+}
+
+// To apply shadow to content area when nav panel is exposed
+.ui-panel-content-wrap {
+	@include single-box-shadow($black, 0, 0, 15px, 0, false);
+}
+
+/****************************************************************
 * Global
 ****************************************************************/
 
@@ -51,9 +70,11 @@ html, body {
 	@include light-font(24px);
 }
 
+nav ul li { list-style: none; }
+
 .action-bar {
 	@include user-defaults;
-	position: fixed;
+	position: absolute;
 	z-index: 9999;
 	color: $white;
 	background-color: $grey;
@@ -66,11 +87,13 @@ html, body {
 	.app-icon {
 		float: left;
 		padding: 30px;
+		vertical-align: middle;
 		img { width: 70px; height: auto; }
 	}
 	
 	h1 {
 		@include regular-font(36px);
+		margin-top: 0.9em;
 		float: left;
 	}
 	
@@ -86,6 +109,8 @@ a.button {
 	padding: 0.5em 1.5em;
 	@include border-radius(5px, 5px);
 }
+
+h1 { font-size: 36px; }
 
 /****************************************************************
 * Main Page
@@ -154,11 +179,56 @@ a.button {
 			width: 32px;
 			height: auto;
 			padding-right: 10px;
+			vertical-align: middle;
 		}
 	}
 	.help { background-color: $red; }
 	.update { background-color: $green; }
 	.no-corner { @include border-radius(0, 0); }
+}
+
+/****************************************************************
+* Main Page
+****************************************************************/
+
+#nav-panel {
+	@include regular-font(36px);
+	color: $white;
+	background-color: #2D2D2D;
+	
+	div.ui-panel-inner { padding: 0; }
+	
+	nav ul {
+		margin: 0; padding: 0;
+		
+		li {
+			background-color: #474747;
+			padding: 0.5em 1em;
+			border-bottom: 1px solid #2D2D2D;
+			// &:first-child { padding-top: 1em; }
+			// &:last-child { padding-bottom: 1em; }
+		}
+		img {
+			height: 70px;
+			width: auto;
+			margin-right: 0.4em;
+			vertical-align: middle;
+		}
+		li.mesh {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			
+			img { height: 40px; width: auto; vertical-align: baseline; }
+			div { display: inline-block; }
+			span { @include light-font(18px); }
+			strong {
+				display: block;
+				@include regular-font(32px);
+				line-height: 0.75em;
+			}
+		}
+	}
 }
 
 /****************************************************************

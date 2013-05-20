@@ -15,8 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
 
 	<!-- JS -->
-	<script src="js/cordova-2.7.0.js"></script>
-	<script src="js/jquery-2.0.0.min.js"></script>
+	<!-- <script src="js/cordova-2.7.0.js"></script> -->
+	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.3.1.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script> <!-- Google Maps -->
 
@@ -40,38 +40,61 @@
 </head>
 
 <body>
-	<!-- Android action bar -->
-	<div class="action-bar">
-		<a class="app-icon" href="#"><img src="./images/icons/whareui-logo.svg"></a>
-		<h1>Whareui</h1>
-		<a class="menu" href="#"><img src="./images/icons/menu-icon.svg"></a>
-	</div><!-- /action-bar -->
-	
-	<!-- Maps -->
-	<div id="map-canvas"></div>
+	<div data-role="content">
+		<!-- Android action bar -->
+		<div class="action-bar">
+			<a class="app-icon" href="#"><img src="./images/icons/whareui-logo.svg"></a>
+			<h1>Whareui</h1>
+			<a class="menu" href="#nav-panel"><img src="./images/icons/menu-icon.svg"></a>
+		</div><!-- /action-bar -->
 
-	<!-- Alerts -->
-	<div class="advisory-title">
-		Latest <span>Emergency Information Advisory</span>
-	</div><!-- /advisory-title -->
-	<div class="disaster-event">
-		<img src="./images/icons/quake-icon.svg">
-		<h1>Earthquake</h1>
-		<a class="button" href="#">1 New Update</a>
-	</div> <!-- /disaster-event -->
+		<!-- Maps -->
+		<div id="map-canvas"></div>
 	
-	<!-- Controls -->
-	<div class="controls">
-		<a href="#" class="help button no-corner">
-			<img src="./images/icons/stop-icon.svg">
-			<span>Request Help</span>
-		</a> <!-- /controls -->
-		<a href="#" class="update button no-corner">
-			<img src="./images/icons/info-icon.svg">
-			<span>Share an Update</span>
-		</a>
-	</div><!-- /controls -->
-
+		<!-- Alerts -->
+		<div class="advisory-title">
+			Latest <span>Emergency Information Advisory</span>
+		</div><!-- /advisory-title -->
+		<div class="disaster-event">
+			<img src="./images/icons/quake-icon.svg">
+			<h1>Earthquake</h1>
+			<a class="button" href="#">1 New Update</a>
+		</div> <!-- /disaster-event -->
+		
+		<!-- Controls -->
+		<div class="controls">
+			<a href="#" class="help button no-corner">
+				<img src="./images/icons/stop-icon.svg">
+				<span>Request Help</span>
+			</a> <!-- /controls -->
+			<a href="#" class="update button no-corner">
+				<img src="./images/icons/info-icon.svg">
+				<span>Share an Update</span>
+			</a>
+		</div> <!-- /controls -->
+	</div><!-- /data-role: content -->
+	
+	<!-- Navigation Panel -->
+	<div data-role="panel" data-position="right" id="nav-panel">
+		<nav>
+			<ul>
+				<li><img src="./images/jacob-brown.png"> <span>Jacob Brown</span></li>
+				<li><img src="./images/icons/home-icon.svg"> <span>Home</span></li>
+				<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
+				<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
+				<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
+				<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
+				<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
+				<li class="mesh">
+					<img src="./images/icons/mesh-icon.svg">
+					<div>
+						<span>Mesh Network Available</span>
+						<strong>Connected to 12 Neighbours</strong>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</div> <!-- /nav-panel -->
 </body>
 
 </html>
