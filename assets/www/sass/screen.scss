@@ -1,0 +1,261 @@
+/****************************************************************
+* Compass Imports
+****************************************************************/
+
+@import "compass/css3";
+@import "compass/utilities";
+
+/****************************************************************
+* Variables
+****************************************************************/
+
+// Default styles
+// Anything that can only be applied to user divs to avoid problems with JQuery Mobile
+@mixin user-defaults {
+	box-sizing: border-box;
+}
+
+// Typeface
+@mixin thin-font($size) {
+	font-family: "Roboto Thin";
+	font-size: $size;
+	font-weight: normal;
+}
+@mixin light-font($size) {
+	font-family: "Roboto Light";
+	font-size: $size;
+	font-weight: normal;
+}
+@mixin regular-font($size) {
+	font-family: "Roboto Regular";
+	font-size: $size;
+	font-weight: normal;
+}
+
+// Size
+$body-font-size: 24px;
+
+// Colour
+$white: #ffffff;
+$black: #000000;
+$grey: #222222;
+$red: #820B0B;
+$green: #1F991C;
+$blue: #3C67D6;
+
+/****************************************************************
+* JQuery Mobile Overrides
+****************************************************************/
+
+.ui-content {
+	padding: 0;
+}
+
+// To override sidebar width, to make it bigger
+.ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-reveal, .ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-push, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-reveal, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-push {
+	-webkit-transform: translate3d(-25.5em,0,0);
+	   -moz-transform: translate3d(-25.5em,0,0);
+	   		transform: translate3d(-25.5em,0,0);
+}
+
+// Change dismiss sidebar dismiss hit area to make it wider, so accomodate wider sidebar width
+.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open, .ui-panel-content-wrap-position-right.ui-panel-content-wrap-open, .ui-panel-dismiss-position-right.ui-panel-dismiss-open {
+	left: -25.5em;
+}
+// To apply shadow to content area when nav panel is exposed
+.ui-panel-content-wrap {
+	@include single-box-shadow($black, 0, 0, 15px, 0, false);
+}
+
+/****************************************************************
+* Global
+****************************************************************/
+
+html, body {
+	@include light-font(24px);
+}
+
+nav ul li { list-style: none; }
+
+.action-bar {
+	@include user-defaults;
+	position: absolute;
+	z-index: 9999;
+	color: $white;
+	background-color: $grey;
+	
+	width: 100%;
+	height: 100px;
+	
+	overflow-y: hidden;
+	
+	.app-icon {
+		float: left;
+		padding: 30px;
+		vertical-align: middle;
+		img { width: 70px; height: auto; }
+	}
+	
+	h1 {
+		@include regular-font(36px);
+		margin-top: 0.9em;
+		float: left;
+	}
+	
+	a.menu {
+		float: right;
+		padding: 30px;
+		img { width: 40pxx; height: auto; }
+	}
+}
+
+a.button {
+	text-decoration: none;
+	padding: 0.5em 1.5em;
+	@include border-radius(5px, 5px);
+}
+
+h1 { font-size: 36px; }
+
+/****************************************************************
+* Main Page
+****************************************************************/
+
+#map-canvas {
+	margin-top: 100px;
+	height: 760px;
+}
+
+.advisory-title {
+	@include user-defaults;
+	width: 100%;
+	height: 80px;
+	padding: 30px;
+	background-color: $black;
+	
+	@include light-font(24px);
+	color: $white;
+	
+	span { @include regular-font(24px); }
+}
+
+.disaster-event {
+	@include user-defaults;
+	width: 100%;
+	height: 100px;
+	
+	color: $white;
+	background-color: tint($black, 25%);
+	
+	img {
+		float: left;
+		width: 60px;
+		height: auto;
+		padding: 30px 30px 0 30px;
+	}
+	h1 {
+		@include regular-font(36px);
+		float: left;
+		padding-top: 10px;
+	}
+	a.button {
+		@include light-font(18px);
+		color: $white;
+		background-color: $blue;
+		
+		float: right;
+		margin: 30px 30px;
+	}
+}
+
+.controls {
+	.button {
+		@include user-defaults;
+		@include light-font(24px);
+		text-align: center;
+		color: $white;
+		
+		width: 50%;
+		height: 100px;
+		padding-top: 30px;
+		
+		float: left;
+		img {
+			width: 32px;
+			height: auto;
+			padding-right: 10px;
+			vertical-align: middle;
+		}
+	}
+	.help { background-color: $red; }
+	.update { background-color: $green; }
+	.no-corner { @include border-radius(0, 0); }
+}
+
+/****************************************************************
+* Main Page
+****************************************************************/
+
+#nav-panel {
+	@include regular-font(36px);
+	color: shade($white, 30);
+	background-color: #2D2D2D;
+	
+	div.ui-panel-inner { padding: 0; }
+	
+	nav ul {
+		margin: 0; padding: 0;
+		
+		li {
+			background-color: #474747;
+			padding: 0.75em 1em;
+			border-bottom: 1px solid #2D2D2D;
+			// &:first-child { padding-top: 1em; }
+			// &:last-child { padding-bottom: 1em; }
+		}
+		img {
+			height: 40px;
+			width: auto;
+			margin-right: 0.4em;
+			vertical-align: middle;
+			&.profile { height: 60px; }
+		}
+		li.mesh {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			
+			img { height: 40px; width: auto; vertical-align: baseline; }
+			div { display: inline-block; }
+			span { @include light-font(18px); }
+			strong {
+				display: block;
+				@include regular-font(32px);
+				line-height: 0.75em;
+			}
+		}
+	}
+}
+
+/****************************************************************
+* @font-face
+****************************************************************/
+
+@font-face {
+  font-family: 'Roboto Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto Thin'), url('../fonts/Roboto-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto Light'), url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+}

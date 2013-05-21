@@ -22,7 +22,7 @@ package com.stanleylai.whareui;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class Whareui extends DroidGap
+public class whareui extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
