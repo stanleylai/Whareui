@@ -38,33 +38,33 @@
     </script>
 </head>
 
-<body>
+<body id="landing">
+	<!-- Navigation Panel -->
+	<div data-role="panel" data-position="right" id="nav-panel">
+		<nav><ul>
+			<li><img class="profile" src="./images/jacob-brown.png"> <span>Jacob Brown</span></li>
+			<a href="./index.html">
+				<li><img src="./images/icons/home-icon.svg"> <span>Home</span></li>
+			</a>
+			<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
+			<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
+			<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
+			<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
+			<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
+			<li class="mesh">
+				<img src="./images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
+		</ul></nav>
+	</div> <!-- /nav-panel -->
+
 	<div data-role="content">
 		<!-- 
 			START Standard UI Elements
 		-->
-		
-		<!-- Navigation Panel -->
-		<div data-role="panel" data-position="right" id="nav-panel">
-			<nav><ul>
-				<li><img class="profile" src="./images/jacob-brown.png"> <span>Jacob Brown</span></li>
-				<a href="./index.html">
-					<li><img src="./images/icons/home-icon.svg"> <span>Home</span></li>
-				</a>
-				<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
-				<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
-				<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
-				<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
-				<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
-				<li class="mesh">
-					<img src="./images/icons/mesh-icon.svg">
-					<div>
-						<span>Mesh Network Available</span>
-						<strong>Connected to 12 Neighbours</strong>
-					</div>
-				</li>
-			</ul></nav>
-		</div> <!-- /nav-panel -->
 
 		<!-- Android action bar -->
 		<div class="action-bar">
@@ -85,10 +85,10 @@
 		<div class="advisory-title">
 			Latest <span>Emergency Information Advisory</span>
 		</div><!-- /advisory-title -->
-		<div class="disaster-event">
+		<div class="disaster-event div-button">
 			<img src="./images/icons/quake-icon.svg">
 			<h1>Earthquake</h1>
-			<a class="button" href="#">1 New Update</a>
+			<a class="button" href="advisory.html">1 New Update</a>
 		</div> <!-- /disaster-event -->
 		
 		<!-- Controls -->
@@ -104,9 +104,15 @@
 		</div> <!-- /controls -->
 	</div><!-- /data-role: content -->
 		
-	<!-- Setting JQM Defaults -->
 	<script>
+		// Set page transition defaults
 		$.mobile.defaultPageTransition = "fade";
+		
+		// Make selected tag clickable
+		$(".div-button").click(function(){
+		     $.mobile.changePage($(this).find("a").attr("href"));
+		     return false;
+		});
 	</script>
 </body>
 
