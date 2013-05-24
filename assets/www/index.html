@@ -39,6 +39,9 @@
 </head>
 
 <body id="landing">
+
+	<!-- START Android Action Bar + Nav -->
+	
 	<!-- Navigation Panel -->
 	<div data-role="panel" data-position="right" id="nav-panel">
 		<nav><ul>
@@ -60,23 +63,22 @@
 			</li>
 		</ul></nav>
 	</div> <!-- /nav-panel -->
+	
+	<!-- Android action bar -->
+	<div data-role="header" data-position="fixed" data-theme="f">
+		<!-- Custom Android Action Bar -->
+		<div class="action-bar">
+			<a class="app-icon" data-theme="f" href="#">
+				<img src="./images/icons/whareui-logo.svg">
+			</a>
+			<h1>Whareui</h1>
+			<a class="menu" href="#nav-panel" data-theme="f"><img src="./images/icons/menu-icon.svg"></a>
+		</div> <!-- /action-bar -->
+	</div><!-- /data-role: header -->
+	
+	<!-- END Android Action Bar + Nav -->
 
 	<div data-role="content">
-		<!-- 
-			START Standard UI Elements
-		-->
-
-		<!-- Android action bar -->
-		<div class="action-bar">
-			<a class="app-icon" href="#"><img src="./images/icons/whareui-logo.svg"></a>
-			<h1>Whareui</h1>
-			<a class="menu" href="#nav-panel"><img src="./images/icons/menu-icon.svg"></a>
-		</div><!-- /action-bar -->
-		
-		<!-- 
-			END Standard UI Elements
-			Start Editing page-specific elements from here
-		-->
 
 		<!-- Maps -->
 		<div id="map-canvas"></div>
