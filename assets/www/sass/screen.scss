@@ -282,6 +282,12 @@ h1 { font-size: 36px; }
 		}
 	}
 	
+	#map-canvas {
+		height: 250px;
+		margin-bottom: 1em;
+		border: 1px solid $grey;
+	}
+	
 	.page-content {
 		div.update {
 			h1 { @include bold-font(24px); text-transform: uppercase; margin: 0; }
