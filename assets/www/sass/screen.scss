@@ -125,9 +125,16 @@ a.button {
 
 h1 { font-size: 36px; }
 
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+}
+
 #content {
 	position: absolute;
-	top: 0;
+	top: 174px;
 	width: 100%;
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
 }
@@ -315,12 +322,10 @@ h1 { font-size: 36px; }
 		}
 	}
 	
-	.page-content {
-		margin-top: 185px;
-		div.update {
-			h1 { @include bold-font(24px); text-transform: uppercase; margin: 0; }
-			p.time-stamp { margin: 0; }
-		}
+	margin-top: 185px;
+	div.update {
+		h1 { @include bold-font(24px); text-transform: uppercase; margin: 0; }
+		p.time-stamp { margin: 0; }
 	}
 }
 
