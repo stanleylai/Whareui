@@ -134,7 +134,7 @@ h1 { font-size: 36px; }
 
 #content {
 	position: absolute;
-	top: 174px;
+	top: 100px;
 	width: 100%;
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
 }
@@ -222,10 +222,7 @@ h1 { font-size: 36px; }
 ****************************************************************/
 
 #landing {
-	#map-canvas {
-		margin-top: 100px;
-		height: 760px;
-	}
+	#map-canvas { height: 760px; }
 	
 	.advisory-title {
 		@include user-defaults;
@@ -299,6 +296,7 @@ h1 { font-size: 36px; }
 ****************************************************************/
 
 #advisory {
+	#content { top: 174px; }
 	.page-nav {
 		clear: both;
 		margin-top: 100px;
