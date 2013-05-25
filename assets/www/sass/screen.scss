@@ -67,10 +67,6 @@ $blue: #3C67D6;
 .ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open, .ui-panel-content-wrap-position-right.ui-panel-content-wrap-open, .ui-panel-dismiss-position-right.ui-panel-dismiss-open {
 	left: -25.5em;
 }
-// To apply shadow to content area when nav panel is exposed
-.ui-panel-content-wrap {
-	@include single-box-shadow($black, 0, 0, 15px, 0, false);
-}
 
 /****************************************************************
 * Global
@@ -133,6 +129,7 @@ h1 { font-size: 36px; }
 	position: absolute;
 	top: 0;
 	width: 100%;
+	@include single-box-shadow($black, 0, 0, 65px, 0, false);
 }
 
 /****************************************************************
@@ -142,11 +139,35 @@ h1 { font-size: 36px; }
 // Hide original nav-panel data
 #nav-panel { display: none; }
 
+// Sidr menu styles
+#nav-menu {
+	&.sidr {
+		display:none;
+		position:absolute;
+		position:fixed;
+		top:0;
+		height:100%;
+		z-index:-10;
+		width:670px;
+		overflow-x:none;
+		overflow-y:auto;
+	}
+	
+	&.sidr.right {
+		left:auto;
+		right:-670px;
+	}
+	
+	&.sidr.left {
+		left:-670px;
+		right:auto;
+	}
+}
+
 // Style sidr nav-menu
 #nav-menu {
 	@include regular-font(36px);
 	background-color: #2D2D2D;
-	div.ui-panel-inner { padding: 0; }
 		
 	// Turn off link visual effects
 	&, & a,
@@ -168,9 +189,9 @@ h1 { font-size: 36px; }
 		img {
 			height: 40px;
 			width: auto;
-			margin-right: 0.4em;
+			margin-right: 0.75em;
 			vertical-align: middle;
-			&.profile { height: 60px; }
+			&.sidr-class-profile { height: 60px; margin-right: 0.4em; }
 		}
 		li.sidr-class-mesh {
 			position: absolute;
