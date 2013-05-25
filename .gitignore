@@ -1,6 +1,6 @@
 # Sass Cache #
 ##############
-.sass-cache/*
+*.sass-cache*
 
 # Compiled source #
 ###################
