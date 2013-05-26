@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Whareui</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=720, height=device-height, target-densitydpi=device-dpi" />
+		
+	<!-- CSS styles -->
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/screen.css">
+
+	<!-- JS -->
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.sidr.js"></script>
+	
+	<!-- Script -->
+	<script>		
+		$(document).ready(function() {			
+			// Enable sidr menu
+		    $('#open-menu').sidr({
+		      name: 'nav-menu',
+		      side: 'right',
+		      source: '#nav-panel'
+		    });
+		});
+    </script>
+</head>
+
+<body id="posting" class="help-update">
+
+	<!-- Navigation Panel -->
+	<div id="nav-panel">
+		<nav><ul>
+			<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
+			
+			<a href="../index.html">
+				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
+			</a>
+			<a href="../notifications/index.html">
+				<li><img src="../images/icons/announce-icon.svg"> <span>Notifications</span></li>
+			</a>
+			<a href="../community/index.html">
+				<li><img src="../images/icons/community-icon.svg"> <span>Community</span></li>
+			</a>
+			<a href="../map/index.html">
+				<li><img src="../images/icons/earth-icon.svg"> <span>Map</span></li>
+			</a>
+			<a href="../news/index.html">
+				<li><img src="../images/icons/news-icon.svg"> <span>News</span></li>
+			</a>
+			<a href="../settings/index.html">
+				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
+			</a>
+			
+			<li class="mesh">
+				<img src="../images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
+		</ul></nav>
+	</div> <!-- /nav-panel -->
+
+	<!-- Header -->
+	<div id="header">
+
+		<!-- Android action bar -->
+		<div class="action-bar child">
+			<a class="app-icon" data-rel="back" href="javascript:history.back()">
+				<img class="back" src="../images/icons/back-icon.svg">
+				<img src="../images/icons/whareui-logo.svg">
+			</a>
+			<h1>New Post</h1>
+			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
+		</div><!-- /action-bar -->
+		
+		<!-- Page Nav -->
+		<div class="posting-header">
+			<img class="info" src="../images/icons/info-icon.svg">
+			<h1>Request Help</h1>
+			<img class="q" src="../images/icons/q-icon.svg">
+		</div> <!-- /page-nav -->
+		
+	</div> <!-- /header -->
+		
+	<!--- Content Area -->
+	<div id="content">
+		<div class="emergency">
+			<p>Is this a 911 Emergency? <a class="meaning" href="#">What does this mean?</a></p>
+			<a class="switch" href="#"><img src="../images/android-switch-no.svg"></a>
+		</div> <!-- /911 -->
+		<textarea placeholder="Tell us how we might assist."></textarea>
+		<div class="meta">
+			<div class="camera"><img src="../images/icons/camera-icon.svg"></div>
+			<div class="location"><img src="../images/icons/compass-icon.svg"></div>
+			<div class="submit">Post</div>
+		</div> <!-- /meta -->
+	</div><!-- /content -->
+</body>
+
+</html>

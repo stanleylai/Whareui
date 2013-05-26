@@ -507,7 +507,6 @@ h1 { font-size: 36px; }
 		width: 100%;
 		height: 100px;
 		margin-top: 100px;
-		background-color: $green;
 		
 		img, h1 { float: left; }
 		img.info { width: 60px; height: auto; vertical-align: middle; margin: 20px 20px 20px 30px; }
@@ -541,12 +540,34 @@ h1 { font-size: 36px; }
 			&.submit {
 				@include regular-font(24px);
 				border: none;
+				float: right;
 				width: 120px;
 				margin-right: 0;
 				padding-top: 35px;
 				background-color: $dark-grey;
 				color: $white;
 			}
+		}
+	}
+	
+	// Colour Post Header	
+	&.share-update .posting-header { background-color: $green; }
+	&.help-update {
+		.posting-header { background-color: $red; }
+		.emergency {
+			@include regular-font(24px);
+			color: $light-grey;
+			margin-bottom: 1em;
+			overflow: auto;
+			
+			p { float: left; margin: 0; }
+			a.meaning {
+				@include light-font(18px);
+				text-decoration: underline;
+				color: $light-grey;
+				margin-left: 0.5em;
+			}
+			.switch { float: right; }
 		}
 	}
 }
