@@ -14,10 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
 
 	<!-- JS -->
-	<!-- <script src="js/cordova-2.7.0.js"></script> -->
+	<script src="js/cordova-2.7.0.js"></script>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.sidr.min.js"></script>
+	<script src="js/jquery.sidr.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script> <!-- Google Maps -->
 	<!-- Init Gmaps -->
 	<script>
@@ -44,14 +44,26 @@
 	<div id="nav-panel">
 		<nav><ul>
 			<li><img class="profile" src="./images/jacob-brown.png"> <span>Jacob Brown</span></li>
+			
 			<a href="./index.html">
 				<li><img src="./images/icons/home-icon.svg"> <span>Home</span></li>
 			</a>
-			<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
-			<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
-			<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
-			<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
-			<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
+			<a href="./notifications/index.html">
+				<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
+			</a>
+			<a href="./community/index.html">
+				<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
+			</a>
+			<a href="./map/index.html">
+				<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
+			</a>
+			<a href="./news/index.html">
+				<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
+			</a>
+			<a href="./settings/index.html">
+				<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
+			</a>
+			
 			<li class="mesh">
 				<img src="./images/icons/mesh-icon.svg">
 				<div>
@@ -87,7 +99,7 @@
 		<div class="disaster-event div-button">
 			<img src="./images/icons/quake-icon.svg">
 			<h1>Earthquake</h1>
-			<a class="button" data-ajax="false" href="./advisory/">1 New Update</a>
+			<a class="button" data-ajax="false" href="advisory/index.html">1 New Update</a>
 		</div> <!-- /disaster-event -->
 		
 		<!-- Controls -->
@@ -103,13 +115,7 @@
 		</div> <!-- /controls -->
 	</div><!-- content -->
 		
-	<script>
-		// Make selected tag clickable
-		$(".div-button").click(function(){
-		     $.mobile.changePage($(this).find("a").attr("href"));
-		     return false;
-		});
-		
+	<script>		
 		// Enable sidr menu
 		$(document).ready(function() {
 		    $('#open-menu').sidr({
