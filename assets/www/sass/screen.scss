@@ -100,6 +100,13 @@ a.button {
 	@include border-radius(5px, 5px);
 }
 
+textarea {
+	@include light-font(18px);	
+	padding: 10px;
+	-webkit-appearance: none;
+	border: 1px solid $light-grey;
+}
+
 h1 { font-size: 36px; }
 
 #header {
@@ -475,14 +482,9 @@ h1 { font-size: 36px; }
 			&.input {
 				border: 1px solid $light-grey;
 				textarea {
-					@include light-font(18px);
 					margin-left: 85px;
 					width: 550px;
 					height: 70px;
-					
-					padding: 10px;
-					-webkit-appearance: none;
-					border: 1px solid $light-grey;
 				}
 			}
 		}
@@ -492,6 +494,60 @@ h1 { font-size: 36px; }
 	// Text Update Post
 	&.text-update-post {
 		.post { padding-bottom: 1em; }
+	}
+}
+
+/****************************************************************
+* New Posting
+****************************************************************/
+
+#posting {
+	// Posting title header
+	.posting-header {
+		width: 100%;
+		height: 100px;
+		margin-top: 100px;
+		background-color: $green;
+		
+		img, h1 { float: left; }
+		img.info { width: 60px; height: auto; vertical-align: middle; margin: 20px 20px 20px 30px; }
+		img.q { width: 40px; height: auto; float: right; margin: 30px 30px; }
+		h1 { @include regular-font(36px); color: white; }
+	}
+	
+	#content { top: 200px; }
+	textarea {
+		@include thin-font(32px);
+		width: 100%;
+		height: 300px;
+		padding: 20px;
+	}
+	.meta {
+		div {
+			float: left;
+			margin-top: 15px;
+			margin-right: 15px;
+			border: 2px dashed $light-grey;
+			width: 100px; height: 100px;
+			text-align: center;
+			padding: 30px 0;
+		
+			&.type {
+				@include light-font(24px);
+				color: $light-grey;
+				width: 308px;
+				padding: 20px 40px;
+			}
+			&.submit {
+				@include regular-font(24px);
+				border: none;
+				width: 120px;
+				margin-right: 0;
+				padding-top: 35px;
+				background-color: $dark-grey;
+				color: $white;
+			}
+		}
 	}
 }
 
