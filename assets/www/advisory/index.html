@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/screen.css">
 
 	<!-- JS -->
-	<script src="js/cordova-2.7.0.js"></script>
+	<script src="../js/cordova-2.7.0.js"></script>
 	<script src="../js/jquery-1.9.1.min.js"></script>
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.sidr.js"></script>
@@ -31,7 +31,13 @@
 				center: myLoc,
 				zoom: 12,
 				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				
+				// disable interaction
+				draggable: false,
+				zoomControl: false,
+				scrollwheel: false,
+				disableDoubleClickZoom: true
 			};
 			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 			
@@ -60,7 +66,7 @@
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
 		<nav><ul>
-			<li><img class="profile" src="../images/jacob-brown.png"> <span>Jacob Brown</span></li>
+			<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
 			
 			<a href="../index.html">
 				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>

@@ -38,29 +38,11 @@ $body-font-size: 24px;
 $white: #ffffff;
 $black: #000000;
 $grey: #222222;
+$dark-grey: #494949;
+$light-grey: #bababa;
 $red: #820B0B;
 $green: #1F991C;
 $blue: #3C67D6;
-
-/****************************************************************
-* JQuery Mobile Overrides
-****************************************************************/
-
-.ui-content {
-	padding: 0;
-}
-
-// To override sidebar width, to make it bigger
-.ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-reveal, .ui-panel-animate.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-push, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-reveal, .ui-panel-animate.ui-panel-content-wrap-position-right.ui-panel-content-wrap-open.ui-panel-content-wrap-display-push {
-	-webkit-transform: translate3d(-25.5em,0,0);
-	   -moz-transform: translate3d(-25.5em,0,0);
-	   		transform: translate3d(-25.5em,0,0);
-}
-
-// Change dismiss sidebar dismiss hit area to make it wider, so accomodate wider sidebar width
-.ui-panel-content-fixed-toolbar-position-right.ui-panel-content-fixed-toolbar-open, .ui-panel-content-wrap-position-right.ui-panel-content-wrap-open, .ui-panel-dismiss-position-right.ui-panel-dismiss-open {
-	left: -25.5em;
-}
 
 /****************************************************************
 * Global
@@ -68,7 +50,9 @@ $blue: #3C67D6;
 
 * { box-sizing: border-box; }
 
-html, body { @include light-font(24px); }
+html, body { @include light-font(24px); color: $black; }
+
+strong { @include regular-font(24px); }
 
 nav ul li { list-style: none; }
 
@@ -106,7 +90,7 @@ nav ul li { list-style: none; }
 }
 
 a, a:visited, a:active, a:hover {
-	color: $white;
+	color: $black;
 	text-decoration: none;
 	border: none;
 }
@@ -126,10 +110,9 @@ h1 { font-size: 36px; }
 }
 
 #content {
-	position: absolute;
+	position: relative;
 	top: 100px;
 	width: 100%;
-	
 	padding: 40px;
 	
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
@@ -242,7 +225,7 @@ h1 { font-size: 36px; }
 		
 		img {
 			float: left;
-			width: 60px;
+			width: 120px;
 			height: auto;
 			padding: 30px 30px 0 30px;
 		}
@@ -331,6 +314,183 @@ h1 { font-size: 36px; }
 	div.update {
 		h1 { @include bold-font(24px); text-transform: uppercase; margin: 0; }
 		p.time-stamp { margin: 0; }
+	}
+}
+
+/****************************************************************
+* Community Page
+****************************************************************/
+
+#community {
+	// Controls for posting and filters
+	.controls {
+		overflow: auto;
+		a, a:visited, a:hover { color: $grey; }
+		.button {
+			@include regular-font(24px);
+			float: left;
+			width: 44%;
+			margin-right: 2%;
+			border: 1px solid $light-grey;
+			padding: 0.5em 0;
+			
+			text-align: center;
+			
+			img { margin-right: 0.5em; vertical-align: middle; }
+			
+			&.filter-toggle {
+				img { margin: 0; }
+				text-align: center;
+				width: 8%;
+				margin-right: 0;
+				padding: 0.5em 0;
+			}
+		}
+	}
+	
+	// Filter menu styles
+	.filter {
+		// hidden by default
+		height: 0;
+		overflow: hidden;
+		padding: 0;
+		
+		clear: both;
+		margin-top: 10px;
+		border: 1px solid $white;
+				
+		select {
+			@include regular-font(18px);
+			-webkit-appearance: none;
+			border: none;
+			padding: 5px 20px;
+			
+			background: url(../images/icons/down-arrow.svg) no-repeat right #fff;
+		}
+		
+		&.show {
+			height: auto;
+			padding: 0.25em 0;
+			border: 1px solid $light-grey;
+			
+		}
+	}
+	
+	// Post styles
+	.posts {
+		clear: both;
+		margin-top: 1em;
+	}
+	.post {
+		@include thin-font(32px);
+		border: 1px solid $light-grey;
+		margin-bottom: 25px;
+					
+		.head {
+			color: $white;
+			padding: 25px;
+			strong { font-size: 32px; }
+			img {
+				width: 60px;
+				height: auto;
+				margin-right: 10px;
+				vertical-align: middle;
+			}
+		}
+		
+		.content, .meta { padding: 0 15px; }
+		.content {
+			overflow: auto;
+			margin-top: 1em;
+			
+			p { margin: 0; }		
+			.map {
+				float: left;
+				width: 270px; height: 270px;
+				margin-right: 1em;
+				border: 1px solid $light-grey;
+			}
+		}
+		.meta {
+			clear: both;
+			overflow: auto;
+			margin-top: 1em;
+			
+			.time, .comment-count { font-size: 24px; }
+			.time { float: left; }
+			.comment-count { float: right; }
+		}
+				
+		// Post types
+		&.text {
+			.head { background-color: $green; }
+		}
+		&.help {
+			.head { background-color: $red; }
+			a .comment-btn { background-color: $red; }
+		}
+	}
+	
+	.comment-btn {
+		@include light-font(24px);
+		padding: 0.75em 1em;
+		margin-top: 1em;
+		
+		color: $white;
+		background-color: $dark-grey;
+		text-align: center;
+	}
+
+	
+	// Comments
+	.comments {
+		margin-top: 1em;
+		.comment {
+			border: 1px solid $light-grey;
+			border-bottom: none; // remove bottom border to prevent overlap
+			padding: 25px;
+			
+			img {
+				position: absolute;
+				width: 70px;
+				height: auto;
+				margin-right: 0.5em;
+			}
+			.text {
+				padding-left: 85px;
+				p {
+					@include light-font(21px);
+					margin: 0;
+				}
+				p.name {
+					@include regular-font(24px);
+					margin-bottom: 0.5em;
+					span {
+						margin-left: 1em;
+						@include light-font(18px);
+					}
+				}
+			}
+			&.input {
+				border: 1px solid $light-grey;
+				textarea {
+					@include light-font(18px);
+					margin-left: 85px;
+					width: 550px;
+					height: 70px;
+					
+					padding: 10px;
+					-webkit-appearance: none;
+					border: 1px solid $light-grey;
+				}
+			}
+		}
+		.comment-btn { margin-top: 0; }
+	}
+	
+	// Text Update Post
+	&.text-update-post {
+		.post { padding-bottom: 1em; }
 	}
 }
 

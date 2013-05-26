@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Whareui</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=720, height=device-height, target-densitydpi=device-dpi" />
+		
+	<!-- CSS styles -->
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/screen.css">
+
+	<!-- JS -->
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.sidr.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
+	
+	<!-- Script -->
+	<script>
+		function initialize() {
+			var myLoc = new google.maps.LatLng(49.2560668, -123.1188659);
+			
+			var mapOptions = {
+				center: myLoc,
+				zoom: 17,
+				disableDefaultUI: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				
+				// disable interaction
+				draggable: false,
+				zoomControl: false,
+				scrollwheel: false,
+				disableDoubleClickZoom: true
+			};
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			// Marker + InfoWindow
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(49.2560668, -123.1188659),
+				map: map,
+				title: 'Help Requested'
+			});
+		}
+		
+		$(document).ready(function() {
+			// Enable the visual refresh
+			google.maps.visualRefresh = true;
+			google.maps.event.addDomListener(window, 'load', initialize);
+			
+			// Enable sidr menu
+		    $('#open-menu').sidr({
+		      name: 'nav-menu',
+		      side: 'right',
+		      source: '#nav-panel'
+		    });
+		    
+		    // Filter menu toggle
+    		$( ".filter-toggle" ).click(function() {
+				$('div.filter').toggleClass( "show", 500, "easeOutSine" );
+			})
+		});
+    </script>
+</head>
+
+<body id="community" class="text-update-post">
+
+	<!-- Navigation Panel -->
+	<div id="nav-panel">
+		<nav><ul>
+			<li><img class="profile" src="../images/jacob-brown.png"> <span>Jacob Brown</span></li>
+			
+			<a href="../index.html">
+				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
+			</a>
+			<a href="../notifications/index.html">
+				<li><img src="../images/icons/announce-icon.svg"> <span>Notifications</span></li>
+			</a>
+			<a href="../community/index.html">
+				<li><img src="../images/icons/community-icon.svg"> <span>Community</span></li>
+			</a>
+			<a href="../map/index.html">
+				<li><img src="../images/icons/earth-icon.svg"> <span>Map</span></li>
+			</a>
+			<a href="../news/index.html">
+				<li><img src="../images/icons/news-icon.svg"> <span>News</span></li>
+			</a>
+			<a href="../settings/index.html">
+				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
+			</a>
+			
+			<li class="mesh">
+				<img src="../images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
+		</ul></nav>
+	</div> <!-- /nav-panel -->
+
+	<!-- Header -->
+	<div id="header">
+
+		<!-- Android action bar -->
+		<div class="action-bar child">
+			<a class="app-icon" data-rel="back" href="javascript:history.back()">
+				<img class="back" src="../images/icons/back-icon.svg">
+				<img src="../images/icons/whareui-logo.svg">
+			</a>
+			<h1>Community</h1>
+			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
+		</div><!-- /action-bar -->
+		
+		<!-- Page Nav -->
+		<div class="page-nav">
+			<div class="div-button current"><a href="#">News Flash</a></div>
+			<div class="div-button"><a href="#">What to Do</a></div>
+		</div> <!-- /page-nav -->
+		
+	</div> <!-- /header -->
+	
+	<!--- Content Area -->
+	<div id="content">
+								
+		<!-- James Wilson text update -->
+		<div class="post text">
+			<div class="head">
+				<img src="../images/profile/james.jpg">
+				<strong>James Wilson</strong> posted a text update.
+			</div> <!-- /head -->
+			
+			<div class="content">
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
+			</div> <!-- /content -->
+			
+			<div class="meta">
+				<div class="time">Added 15 minutes ago.</div>
+				<div class="comment-count">2 comments</div>
+			</div> <!-- /meta -->
+			
+		</div> <!-- /post -->
+		
+		<!-- Comments -->
+		<div class="comments">
+			<div class="comment">
+				<img src="../images/profile/kayla.jpg">
+				<div class="text">
+					<p class="name">Kayla Brown<span>55 minutes ago</span></p>
+					<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare.</p>
+				</div> <!-- /text -->
+			</div> <!-- /comment -->
+			<div class="comment">
+				<img src="../images/profile/lee.jpg">
+				<div class="text">
+					<p class="name">Lee Adam<span>1 hour ago</span></p>
+					<p>Donec sed odio dui.</p>
+				</div> <!-- /text -->
+			</div> <!-- /comment -->
+			<div class="comment input">
+				<img src="../images/profile/jacob-brown.png">
+				<textarea placeholder="Say Something!"></textarea>
+			</div> <!-- /comment-input -->
+			<div class="comment-btn button">Add Comment</div>
+		</div> <!-- /comments -->
+						
+	</div><!-- /content -->
+</body>
+
+</html>
