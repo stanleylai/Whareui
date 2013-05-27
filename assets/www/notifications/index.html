@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Whareui</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=720, height=device-height, target-densitydpi=device-dpi" />
+		
+	<!-- CSS styles -->
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/screen.css">
+
+	<!-- JS -->
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.sidr.js"></script>
+	
+	<!-- Script -->
+	<script>		
+		$(document).ready(function() {			
+			// Enable sidr menu
+		    $('#open-menu').sidr({
+		      name: 'nav-menu',
+		      side: 'right',
+		      source: '#nav-panel'
+		    });
+		});
+    </script>
+</head>
+
+<body id="notifications">
+
+	<!-- Navigation Panel -->
+	<div id="nav-panel">
+		<nav><ul>
+			<a href="../profile/index.html">
+				<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
+			</a>
+			
+			<a href="../index.html">
+				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
+			</a>
+			<a href="../notifications/index.html">
+				<li>
+					<img src="../images/icons/announce-icon.svg"> <span>Notifications</span>
+					<div class="new-marker circle">3</div>
+				</li>
+			</a>
+			<a href="../community/index.html">
+				<li>
+					<img src="../images/icons/community-icon.svg"> <span>Community</span>
+					<div class="new-marker circle">5</div>
+				</li>
+			</a>
+			<a href="../map/index.html">
+				<li><img src="../images/icons/earth-icon.svg"> <span>Map</span></li>
+			</a>
+			<a href="../news/index.html">
+				<li>
+					<img src="../images/icons/news-icon.svg"> <span>News</span>
+					<div class="new-marker circle">2</div>
+				</li>
+			</a>
+			<a href="../settings/index.html">
+				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
+			</a>
+			
+			<a href="../mesh/index.html">
+				<li class="mesh">
+					<img src="../images/icons/mesh-icon.svg">
+					<div>
+						<span>Mesh Network Available</span>
+						<strong>Connected to 12 Neighbours</strong>
+					</div>
+				</li>
+			</a>
+			
+		</ul></nav>
+	</div> <!-- /nav-panel -->
+
+	<!-- Header -->
+	<div id="header">
+
+		<!-- Android action bar -->
+		<div class="action-bar child">
+			<a class="app-icon" data-rel="back" href="javascript:history.back()">
+				<img class="back" src="../images/icons/back-icon.svg">
+				<img src="../images/icons/whareui-logo.svg">
+			</a>
+			<h1>Notifications</h1>
+			<a class="menu" id="open-menu" href="#open-menu">
+				<img src="../images/icons/menu-icon.svg">
+				<div class="new-marker circle">10</div>
+			</a>
+		</div><!-- /action-bar -->		
+	</div> <!-- /header -->
+	
+	<!--- Content Area -->
+	<div id="content">
+		
+		<h1>
+			<div class="new-marker red">2</div>Unread Help Requests in your Vicinity
+		</h1>
+		
+		<div class="notification help">
+			<div class="profile-pic">
+				<img src="../images/profile/seth.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">Seth Williams</span> has requested help.</p>
+				<p class="time">1 minutes ago.</p>
+			</div>
+			<div class="new-marker red">New</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification help last">
+			<div class="profile-pic">
+				<img src="../images/profile/pradeep.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">Pradeep Akula</span> has requested help.</p>
+				<p class="time">16 minutes ago.</p>
+			</div>
+			<div class="new-marker red">New</div>
+		</div> <!-- /notification -->
+		
+		<h1>
+			<div class="new-marker">1</div>Unread Comments
+		</h1>
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/james.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">James Wilson</span> has commented on your update.</p>
+				<p class="time">5 minutes ago.</p>
+			</div>
+			<div class="new-marker">New</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/kayla.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">Kayla Taylor</span> has commented on your update.</p>
+				<p class="time">7 minutes ago.</p>
+			</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/rosa.png">
+			</div>
+			<div class="text">
+				<p><span class="name">Rosa Sanchez</span> has commented on your update.</p>
+				<p class="time">10 minutes ago.</p>
+			</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/sally.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">Sally Cox</span> has commented on your update.</p>
+				<p class="time">45 minutes ago.</p>
+			</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/james.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">James Wilson</span> has commented on your update.</p>
+				<p class="time">1 hour ago.</p>
+			</div>
+		</div> <!-- /notification -->
+		
+		<div class="notification text">
+			<div class="profile-pic">
+				<img src="../images/profile/piper.jpg">
+			</div>
+			<div class="text">
+				<p><span class="name">Janice Wong</span> has commented on your update.</p>
+				<p class="time">1 hour ago.</p>
+			</div>
+		</div> <!-- /notification -->
+				
+	</div><!-- /content -->
+</body>
+
+</html>

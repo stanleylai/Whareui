@@ -83,9 +83,15 @@ nav ul li { list-style: none; }
 	&.child h1 { @include light-font(36px); } // Lighter weight for child app pages
 	
 	a.menu {
+		position: relative;
 		float: right;
 		padding: 30px;
-		img { width: 40pxx; height: auto; }
+		img { width: 40px; height: auto; }
+		.new-marker {
+			position: absolute;
+			bottom: 16px;
+			right: 11px;
+		}
 	}
 }
 
@@ -124,6 +130,26 @@ h1 { font-size: 36px; font-weight: normal; }
 	padding: 40px;
 	
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
+}
+
+.new-marker,
+.sidr-class-new-marker {
+	@include regular-font(18px);
+	color: $white;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: $blue;
+	padding: 0.4em;
+	width: 3.5em;
+	
+	@include border-radius(7px);
+	&.circle, &.sidr-class-circle {
+		@include border-radius(100px);
+		width: 2em;
+	}
+	&.red {
+		background-color: $red;
+	}
 }
 
 /****************************************************************
@@ -179,6 +205,9 @@ h1 { font-size: 36px; font-weight: normal; }
 			background-color: #474747;
 			padding: 0.75em 1em;
 			border-bottom: 1px solid #2D2D2D;
+			.sidr-class-new-marker {
+				float: right;
+			}
 		}
 		img {
 			height: 40px;
@@ -264,7 +293,7 @@ h1 { font-size: 36px; font-weight: normal; }
 			
 			float: left;
 			img {
-				width: 32px;
+				width: 42px;
 				height: auto;
 				padding-right: 10px;
 				vertical-align: middle;
@@ -323,6 +352,67 @@ h1 { font-size: 36px; font-weight: normal; }
 	div.update {
 		h1 { @include bold-font(24px); text-transform: uppercase; margin: 0; }
 		p.time-stamp { margin: 0; }
+		.new-marker {
+			font-size: 12px;
+			display: inline-block;
+		}
+	}
+}
+
+/****************************************************************
+* Notification Page
+****************************************************************/
+
+#notifications {
+	#content h1 {
+		@include regular-font(24px);
+		.new-marker {
+			display: inline-block;
+			width: 40px;
+			vertical-align: baseline;
+			margin-right: 0.4em;
+		}
+	}
+	.notification {
+		@include light-font(21px);
+		border: 1px solid $light-grey;
+		border-bottom: 0;
+		overflow: auto;
+		
+		div.profile-pic {
+			float: left;
+			padding: 0.75em;
+			margin-right: 1em;
+			img { width: 70px; height: auto; }
+		}
+		.text {
+			float: left;
+			padding-top: 32px;
+			p {
+				margin: 0;
+				.name { @include regular-font(21px); }
+				&.time { @include light-font(18px); color: $light-grey; }
+			}
+		}
+		
+		// text notification specific
+		&.text {
+			div.profile-pic { background-color: tint($green, 75); }
+		}
+		
+		// help notification specific
+		&.help {
+			div.profile-pic { background-color: tint($red, 85); }
+		}
+		
+		// close off the border for the last notification
+		&:last-child, &.last { border-bottom: 1px solid $light-grey; }
+		
+		.new-marker {
+			font-size: 14px;
+			float: right;
+			margin: 32px 20px 0 0;
+		}
 	}
 }
 
@@ -499,6 +589,15 @@ h1 { font-size: 36px; font-weight: normal; }
 }
 
 /****************************************************************
+* Main Page
+****************************************************************/
+
+#maps {
+	#content { padding: 0; }
+	#map-canvas { height: 932px; }
+}
+
+/****************************************************************
 * New Posting
 ****************************************************************/
 
@@ -556,9 +655,73 @@ h1 { font-size: 36px; font-weight: normal; }
 			}
 		}
 	}
+		
+	.text {
+		@include regular-font(32px);
+		color: $dark-grey;
+		text-align: center;
+		margin-top: 2em;
+		
+		h1 { margin-bottom: 0.35em; }
+		.sub-text {
+			@include thin-font(32px);
+			margin: 0;
+			&.small {
+				font-size: 18px;
+				margin-top: 2em;
+			}
+		}
+		
+		.button {
+			@include regular-font(32px);
+			color: $white;
+			display: inline-block;
+			margin-top: 2em;
+			padding: 1em 2em;			
+		}
+		
+		// Help/Request Confirmation
+		&.ticket {
+			.sub-text { margin-top: 2em; }
+			.sub-text.small { margin-top: 4em; }
+		}
+	}
 	
-	// Colour Post Header	
-	&.share-update .posting-header { background-color: $green; }
+	// Selection menu of Needs
+	.type {
+		select {
+			@include light-font(18px);
+			color: $light-grey;
+			-webkit-appearance: none;
+			border: none;
+			padding: 10px 20px;
+			width: 100%;
+			margin-bottom: 1em;
+			border: 1px solid $light-grey;
+			@include border-radius(0, 0);
+			
+			background: url(../images/icons/down-arrow-light.svg) no-repeat right #fff;
+			background-position-x: 98%;
+		}
+	}
+	
+	.pagination {
+		position: absolute;
+		bottom: 1em;
+		left: 0; right: 0;
+		
+		@include thin-font(24px);
+		color: $light-grey;
+		text-align: center;
+	}
+	
+	// Share an Update Specific-styles	
+	&.share-update {
+		.posting-header { background-color: $green; }
+		.ticket .sub-text { margin-top: 1em; }
+	}
+	
+	// Request Help Specific-styles
 	&.help-update {
 		.posting-header { background-color: $red; }
 		.emergency {
@@ -576,38 +739,18 @@ h1 { font-size: 36px; font-weight: normal; }
 			}
 			.switch { float: right; }
 		}
-	}
-	
-	// 911 Request
-	&.help-911 {
-		#map-canvas {
-			border: 1px solid $light-grey;
-			width: 100%;
-			height: 350px;
-		}
 		.text {
-			@include regular-font(32px);
-			color: $dark-grey;
-			text-align: center;
-			margin-top: 2em;
-			
-			h1 { margin-bottom: 0.35em; }
-			.sub-text {
-				@include thin-font(32px);
-				margin: 0;
-				&.small {
-					font-size: 18px;
-					margin-top: 2em;
-				}
+			a, a:visited, a:active, a:hover { text-decoration: underline; }
+		}
+		
+		// 911 Request
+		&.help-911 {
+			#map-canvas {
+				border: 1px solid $light-grey;
+				width: 100%;
+				height: 350px;
 			}
-			
-			.button {
-				@include regular-font(32px);
-				color: $white;
-				display: inline-block;
-				margin-top: 2em;
-				padding: 1em 2em;
-				
+			.text .button {
 				&.big { width: 300px; height: 300px; }
 				&.yes { background-color: $green; margin-right: 0.25em; }
 				&.no { background-color: $red; margin-left: 0.25em; }
@@ -626,39 +769,6 @@ h1 { font-size: 36px; font-weight: normal; }
 					background-color: $grey;
 				}
 			}
-			
-			&.ticket {
-				.sub-text { margin-top: 2em; }
-				.sub-text.small { margin-top: 4em; }
-			}
-		}
-		
-		// Selection menu of Needs
-		.type {
-			select {
-				@include light-font(18px);
-				color: $light-grey;
-				-webkit-appearance: none;
-				border: none;
-				padding: 10px 20px;
-				width: 100%;
-				margin-bottom: 1em;
-				border: 1px solid $light-grey;
-				@include border-radius(0, 0);
-				
-				background: url(../images/icons/down-arrow-light.svg) no-repeat right #fff;
-				background-position-x: 98%;
-			}
-		}
-		
-		.pagination {
-			position: absolute;
-			bottom: 1em;
-			left: 0; right: 0;
-			
-			@include thin-font(24px);
-			color: $light-grey;
-			text-align: center;
 		}
 	}
 }

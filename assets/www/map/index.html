@@ -7,20 +7,52 @@
 	<!-- Meta -->
 	<meta charset="utf-8" />
 	<meta name="format-detection" content="telephone=no" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=720, height=device-height, target-densitydpi=device-dpi" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		
 	<!-- CSS styles -->
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/screen.css">
 
 	<!-- JS -->
+	<script src="../js/cordova-2.7.0.js"></script>
 	<script src="../js/jquery-1.9.1.min.js"></script>
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.sidr.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
 	
 	<!-- Script -->
-	<script>		
-		$(document).ready(function() {			
+	<script>
+		// Init GMaps
+		function initialize() {
+			var myLoc = new google.maps.LatLng(49.255082, -123.104532);
+			
+			var mapOptions = {
+				center: myLoc,
+				zoom: 17,
+				disableDefaultUI: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,				
+			};
+			
+			// Init GMaps var
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			// Current location marker icon
+			var currLocImage = "../images/curr-location-marker.svg";
+			
+			// Marker
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(49.255082, -123.104532),
+				map: map,
+				icon: currLocImage,
+				title: 'Current Location'
+			});
+		}
+		
+		$(document).ready(function() {
+			// Enable the visual refresh
+			google.maps.visualRefresh = true;
+			google.maps.event.addDomListener(window, 'load', initialize);
+			
 			// Enable sidr menu
 		    $('#open-menu').sidr({
 		      name: 'nav-menu',
@@ -31,7 +63,7 @@
     </script>
 </head>
 
-<body id="posting" class="help-update help-911">
+<body id="maps">
 
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
@@ -80,63 +112,40 @@
 			
 		</ul></nav>
 	</div> <!-- /nav-panel -->
-
+	
 	<!-- Header -->
 	<div id="header">
-
+	
 		<!-- Android action bar -->
 		<div class="action-bar child">
 			<a class="app-icon" data-rel="back" href="javascript:history.back()">
 				<img class="back" src="../images/icons/back-icon.svg">
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
-			<h1>New Post</h1>
+			<h1>Map</h1>
 			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
 		</div><!-- /action-bar -->
 		
-		<!-- Page Nav -->
-		<div class="posting-header">
-			<img class="info" src="../images/icons/info-icon.svg">
-			<h1>Request Police Help</h1>
-			<img class="q" src="../images/icons/q-icon.svg">
-		</div> <!-- /page-nav -->
-		
 	</div> <!-- /header -->
-		
+	
 	<!--- Content Area -->
 	<div id="content">
-		<div class="emergency">
-			<p>Is this a 911 Emergency? <a class="meaning" href="#">What does this mean?</a></p>
-			<a class="switch" href="./help.html"><img src="../images/android-switch-yes.svg"></a>
-		</div> <!-- /911 -->
+
+		<!-- Maps -->
+		<div id="map-canvas"></div>
+
+	</div><!-- content -->
 		
-		<div class="type">
-			<select>
-				<option class="selected">What crime are your reporting?</option>
-				<option>Arson</option>
-				<option>Assault</option>
-				<option>Looting</option>
-				<option>Nuisance</option>
-				<option>Riot</option>
-				<option>Robbery</option>
-				<option>Scam</option>
-				<option>Trespassing</option>
-				<option>Other</option>
-			</select>
-		</div> <!-- /type -->
-		
-		<textarea placeholder="Tell us how we might assist."></textarea>
-		<div class="meta">
-			<div class="camera"><img src="../images/icons/camera-icon.svg"></div>
-			<div class="location"><img src="../images/icons/compass-icon.svg"></div>
-			<div class="mic"><img src="../images/icons/mic-icon.svg"></div>
-			<a href="./911-4-police.html"><div class="submit">Post</div></a>
-		</div> <!-- /meta -->
-		
-		<div class="pagination">
-			Step 3 of 4
-		</div> <!-- /pagination -->
-	</div><!-- /content -->
+	<script>		
+		// Enable sidr menu
+		$(document).ready(function() {
+		    $('#open-menu').sidr({
+		      name: 'nav-menu',
+		      side: 'right',
+		      source: '#nav-panel'
+		    });
+		});
+	</script>
 </body>
 
 </html>

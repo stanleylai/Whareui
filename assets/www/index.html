@@ -43,34 +43,48 @@
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
 		<nav><ul>
-			<li><img class="profile" src="./images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
+			<a href="./profile/index.html">
+				<li><img class="profile" src="./images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
+			</a>
 			
 			<a href="./index.html">
 				<li><img src="./images/icons/home-icon.svg"> <span>Home</span></li>
 			</a>
-			<a href="./notifications/index.html">
-				<li><img src="./images/icons/announce-icon.svg"> <span>Notifications</span></li>
+			<a href="../notifications/index.html">
+				<li>
+					<img src="./images/icons/announce-icon.svg"> <span>Notifications</span>
+					<div class="new-marker circle">3</div>
+				</li>
 			</a>
 			<a href="./community/index.html">
-				<li><img src="./images/icons/community-icon.svg"> <span>Community</span></li>
+				<li>
+					<img src="./images/icons/community-icon.svg"> <span>Community</span>
+					<div class="new-marker circle">5</div>
+				</li>
 			</a>
 			<a href="./map/index.html">
 				<li><img src="./images/icons/earth-icon.svg"> <span>Map</span></li>
 			</a>
 			<a href="./news/index.html">
-				<li><img src="./images/icons/news-icon.svg"> <span>News</span></li>
+				<li>
+					<img src="./images/icons/news-icon.svg"> <span>News</span>
+					<div class="new-marker circle">2</div>
+				</li>
 			</a>
 			<a href="./settings/index.html">
 				<li><img src="./images/icons/settings-icon.svg"> <span>Settings</span></li>
 			</a>
 			
-			<li class="mesh">
-				<img src="./images/icons/mesh-icon.svg">
-				<div>
-					<span>Mesh Network Available</span>
-					<strong>Connected to 12 Neighbours</strong>
-				</div>
-			</li>
+			<a href="./mesh/index.html">
+				<li class="mesh">
+					<img src="./images/icons/mesh-icon.svg">
+					<div>
+						<span>Mesh Network Available</span>
+						<strong>Connected to 12 Neighbours</strong>
+					</div>
+				</li>
+			</a>
+			
 		</ul></nav>
 	</div> <!-- /nav-panel -->
 	
@@ -104,11 +118,11 @@
 		
 		<!-- Controls -->
 		<div class="controls">
-			<a href="#" class="help button no-corner">
+			<a href="./posting/help.html" class="help button no-corner">
 				<img src="./images/icons/stop-icon.svg">
 				<span>Request Help</span>
 			</a> <!-- /controls -->
-			<a href="#" class="update button no-corner">
+			<a href="./posting/update.html" class="update button no-corner">
 				<img src="./images/icons/info-icon.svg">
 				<span>Share an Update</span>
 			</a>
