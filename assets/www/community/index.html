@@ -22,7 +22,7 @@
 	<!-- Script -->
 	<script>
 		function initialize() {
-			var myLoc = new google.maps.LatLng(49.2560668, -123.1188659);
+			var myLoc = new google.maps.LatLng(49.261411, -123.173102);
 			
 			var mapOptions = {
 				center: myLoc,
@@ -40,8 +40,9 @@
 			
 			// Marker + InfoWindow
 			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(49.2560668, -123.1188659),
+				position: new google.maps.LatLng(49.261411, -123.173102),
 				map: map,
+				icon: "../images/icons/map-marker-red.svg",
 				title: 'Help Requested'
 			});
 		}
@@ -71,9 +72,7 @@
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
 		<nav><ul>
-			<a href="../profile/index.html">
-				<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
-			</a>
+			<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
 			
 			<a href="../index.html">
 				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
@@ -103,15 +102,13 @@
 				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
 			</a>
 			
-			<a href="../mesh/index.html">
-				<li class="mesh">
-					<img src="../images/icons/mesh-icon.svg">
-					<div>
-						<span>Mesh Network Available</span>
-						<strong>Connected to 12 Neighbours</strong>
-					</div>
-				</li>
-			</a>
+			<li class="mesh">
+				<img src="../images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
 			
 		</ul></nav>
 	</div> <!-- /nav-panel -->
@@ -126,15 +123,11 @@
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
 			<h1>Community</h1>
-			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
-		</div><!-- /action-bar -->
-		
-		<!-- Page Nav -->
-		<div class="page-nav">
-			<div class="div-button current"><a href="#">News Flash</a></div>
-			<div class="div-button"><a href="#">What to Do</a></div>
-		</div> <!-- /page-nav -->
-		
+			<a class="menu" id="open-menu" href="#open-menu">
+				<img src="../images/icons/menu-icon.svg">
+				<div class="new-marker circle">10</div>
+			</a>
+		</div><!-- /action-bar -->		
 	</div> <!-- /header -->
 	
 	<!--- Content Area -->
@@ -186,7 +179,8 @@
 					</div> <!-- /head -->
 					
 					<div class="content">
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
+						<img src="../images/tree-blocked-road.jpg">
+						<p>Watch out everyone, a tree has blocked this road.</p>
 					</div> <!-- /content -->
 					
 					<div class="meta">
@@ -198,63 +192,111 @@
 				</div> <!-- /post -->
 			</a>
 			
-			<!-- Janice Wong requests help -->
-			<div class="post help">
-				<div class="head">
-					<img src="../images/profile/piper.jpg">
-					<strong>Janice Wong</strong> has requested help.
-				</div> <!-- /head -->
-				
-				<div class="content">
-					<div class="map" id="map-canvas"></div>
-					<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-				</div> <!-- /content -->
-				
-				<div class="meta">
-					<div class="time">Added 18 minutes ago.</div>
-					<div class="comment-count">1 comments</div>
-				</div> <!-- /meta -->
-				
-				<a href="#"><div class="comment-btn button">Respond with Help</div></a>
-			</div> <!-- /post -->
+			<!-- Seth Williams requests help -->
+			<a href="seth-williams.html">
+				<div class="post help">
+					<div class="head">
+						<img src="../images/profile/seth.jpg">
+						<strong>Seth Williams</strong> has requested help.
+					</div> <!-- /head -->
+					
+					<div class="content">
+						<div class="map" id="map-canvas"></div>
+						<p>My roof has caved, and I can't find my baby girl!</p>
+					</div> <!-- /content -->
+					
+					<div class="meta">
+						<div class="time">Added 18 minutes ago.</div>
+						<div class="comment-count">1 comments</div>
+					</div> <!-- /meta -->
+					
+					<a href="#"><div class="comment-btn button">Respond with Help</div></a>
+				</div> <!-- /post -->
+			</a>
 			
-			<!-- Larry Brown text update -->
-			<div class="post text">
-				<div class="head">
-					<img src="../images/profile/larry.jpg">
-					<strong>Larry Brown</strong> posted a text update.
-				</div> <!-- /head -->
-				
-				<div class="content">
-					<p>Aenean lacinia bibendum nulla sed consectetur. Donec sed odio dui.</p>
-				</div> <!-- /content -->
-				
-				<div class="meta">
-					<div class="time">Added 25 minutes ago.</div>
-					<div class="comment-count">4 comments</div>
-				</div> <!-- /meta -->
-				
-				<a href="#"><div class="comment-btn button">Comment</div></a>
-			</div> <!-- /post -->
+			<!-- Kayla Taylor text update -->
+			<a href="kayla-taylor.html">
+				<div class="post text">
+					<div class="head">
+						<img src="../images/profile/kayla.jpg">
+						<strong>Kayla Taylor</strong> posted a text update.
+					</div> <!-- /head -->
+					
+					<div class="content">
+						<p>Going to drive down to the store for stuff. Anyone needs a lift?</p>
+					</div> <!-- /content -->
+					
+					<div class="meta">
+						<div class="time">Added 25 minutes ago.</div>
+						<div class="comment-count">4 comments</div>
+					</div> <!-- /meta -->
+					
+					<a href="#"><div class="comment-btn button">Comment</div></a>
+				</div> <!-- /post -->
+			</a>
 						
 			<!-- Pradeep Akula text update -->
-			<div class="post text">
-				<div class="head">
-					<img src="../images/profile/pradeep.jpg">
-					<strong>Pradeep Akula</strong> posted a text update.
-				</div> <!-- /head -->
-				
-				<div class="content">
-					<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div> <!-- /content -->
-				
-				<div class="meta">
-					<div class="time">Added 41 minutes ago.</div>
-					<div class="comment-count">1 comments</div>
-				</div> <!-- /meta -->
-				
-				<a href="#"><div class="comment-btn button">Comment</div></a>
-			</div> <!-- /post -->
+			<a href="pradeep-akula.html">
+				<div class="post text">
+					<div class="head">
+						<img src="../images/profile/pradeep.jpg">
+						<strong>Pradeep Akula</strong> posted a text update.
+					</div> <!-- /head -->
+					
+					<div class="content">
+						<p>I have an extra sleeping bag, if anyone needs one!</p>
+					</div> <!-- /content -->
+					
+					<div class="meta">
+						<div class="time">Added 41 minutes ago.</div>
+						<div class="comment-count">2 comments</div>
+					</div> <!-- /meta -->
+					
+					<a href="#"><div class="comment-btn button">Comment</div></a>
+				</div> <!-- /post -->
+			</a>
+			
+			<!-- Rosa Sanchez text update -->
+			<a href="rosa-sanchez.html">
+				<div class="post text">
+					<div class="head">
+						<img src="../images/profile/rosa.png">
+						<strong>Rosa Sanchez</strong> posted a text update.
+					</div> <!-- /head -->
+					
+					<div class="content">
+						<p>Just realized I forgot to pack a can opener in my kit. Anyone has an extra?</p>
+					</div> <!-- /content -->
+					
+					<div class="meta">
+						<div class="time">Added 1 hour ago.</div>
+						<div class="comment-count">1 comments</div>
+					</div> <!-- /meta -->
+					
+					<a href="#"><div class="comment-btn button">Comment</div></a>
+				</div> <!-- /post -->
+			</a>
+			
+			<!-- Janice Wong text update -->
+			<a href="janice-wong.html">
+				<div class="post text">
+					<div class="head">
+						<img src="../images/profile/rosa.png">
+						<strong>Janice Wong</strong> posted a text update.
+					</div> <!-- /head -->
+					
+					<div class="content">
+						<p>At least this means I can miss work tomorrow?</p>
+					</div> <!-- /content -->
+					
+					<div class="meta">
+						<div class="time">Added 1 hour ago.</div>
+						<div class="comment-count">0 comments</div>
+					</div> <!-- /meta -->
+					
+					<a href="#"><div class="comment-btn button">Comment</div></a>
+				</div> <!-- /post -->
+			</a>
 
 		
 		</div> <!-- /posts -->

@@ -126,7 +126,7 @@ h1 { font-size: 36px; font-weight: normal; }
 	position: relative;
 	top: 100px;
 	width: 100%;
-	min-height: 932px; 
+	min-height: 1032px; 
 	padding: 40px;
 	
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
@@ -149,6 +149,27 @@ h1 { font-size: 36px; font-weight: normal; }
 	}
 	&.red {
 		background-color: $red;
+	}
+}
+
+#map-canvas {
+	.marker-content {
+		img.profile {
+			width: 80px;
+			height: auto;
+			float: left;
+			margin-right: 1em;
+			border: 1px solid $light-grey;
+		}
+		.new-marker {
+			font-size: 12px;
+			width: 5em;
+			float: right;
+			margin-right: 1em;
+			&.help { background-color: $red; }
+		}
+		h1.name { @include light-font(21px); margin: 0 0 0.25em 0; }
+		p { @include thin-font(18px); margin: 0; }
 	}
 }
 
@@ -503,7 +524,7 @@ h1 { font-size: 36px; font-weight: normal; }
 			margin-top: 1em;
 			
 			p { margin: 0; }		
-			.map {
+			.map, img {
 				float: left;
 				width: 270px; height: 270px;
 				margin-right: 1em;
@@ -584,7 +605,17 @@ h1 { font-size: 36px; font-weight: normal; }
 	
 	// Text Update Post
 	&.text-update-post {
-		.post { padding-bottom: 1em; }
+		.post {
+			padding-bottom: 1em;
+			// if is help request, remove padding for button to sit flush to bottom
+			&.help { padding-bottom: 0; }
+			
+			.eta {
+				@include thin-font(21px);
+				color: $light-grey;
+				margin-top: 1em;
+			}
+		}
 	}
 }
 
@@ -594,7 +625,7 @@ h1 { font-size: 36px; font-weight: normal; }
 
 #maps {
 	#content { padding: 0; }
-	#map-canvas { height: 932px; }
+	#map-canvas { height: 1032px; }
 }
 
 /****************************************************************
@@ -713,11 +744,11 @@ h1 { font-size: 36px; font-weight: normal; }
 		}
 		
 		.button {
-			@include regular-font(32px);
+			@include regular-font(28px);
 			color: $white;
 			display: inline-block;
 			margin-top: 2em;
-			padding: 1em 2em;			
+			padding: 1.2em 1em;			
 		}
 		
 		// Help/Request Confirmation
@@ -779,10 +810,7 @@ h1 { font-size: 36px; font-weight: normal; }
 			}
 			.switch { float: right; }
 		}
-		.text {
-			a, a:visited, a:active, a:hover { text-decoration: underline; }
-		}
-		
+				
 		// 911 Request
 		&.help-911 {
 			#map-canvas {
@@ -791,16 +819,19 @@ h1 { font-size: 36px; font-weight: normal; }
 				height: 350px;
 			}
 			.text .button {
-				&.big { width: 300px; height: 300px; }
+				&.big { width: 200px; height: 300px; }
 				&.yes { background-color: $green; margin-right: 0.25em; }
 				&.no { background-color: $red; margin-left: 0.25em; }
 				
 				// 911 Police/Ambulance Requests
-				&.police, &.ambulance {
-					padding-top: 1.5em;
+				&.police, &.ambulance, &.fire {
+					padding-top: 2.2em;
+					text-align: center;
+					vertical-align: middle;
 					img { margin-bottom: 0.75em; }
 				}
 				&.police { background-color: $blue; }
+				&.fire { background-color: $red; }
 				&.ambulance { background-color: $red; }
 				&.big.both {
 					margin-top: 0.25em;

@@ -5,7 +5,6 @@ function initialize() {
 	var mapOptions = {
 		center: myLoc,
 		zoom: 17,
-		minZoom: 16,
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -14,19 +13,19 @@ function initialize() {
 	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	
 	// Marker Graphics
-	var currLocImage = './images/curr-location-marker.svg'; // Current location marker icon
-	var redMarkerImage = './images/icons/map-marker-red.svg';
-	var greenMarkerImage = './images/icons/map-marker-green.svg';
-	var blueMarkerImage = './images/icons/map-marker-blue.svg';
+	var currLocImage = '../images/curr-location-marker.svg'; // Current location marker icon
+	var redMarkerImage = '../images/icons/map-marker-red.svg';
+	var greenMarkerImage = '../images/icons/map-marker-green.svg';
+	var blueMarkerImage = '../images/icons/map-marker-blue.svg';
 	
 	// Incident Array
 	var inArray = [
-					['help', redMarkerImage, 'Seth Williams', './images/profile/seth.jpg', './community/seth-williams.html', "The wall outside our room has caved, and we are trapped in here!", 49.261411, -123.173102],
-					['update', greenMarkerImage, 'James Wilson', './images/profile/james.jpg', './community/james-wilson.html', 'Watch out everyone, a tree has blocked this road', 49.26086, -123.17205],
-					['update', greenMarkerImage, 'Kayla Taylor', './images/profile/kayla.jpg', './community/kayla-taylor.html', 'Going to drive down to the store for stuff. Anyone needs a lift?', 49.26034, -123.17049],
-					['update', greenMarkerImage, 'Janice Wong', './images/profile/piper.jpg', './community/janice-wong.html', "At least this means I can miss work tomorrow?", 49.25949, -123.17206],
-					['update', greenMarkerImage, 'Rosa Sanchez', './images/profile/rosa.png', './community/rosa-sanchez.html', 'Just realized I forgot to pack a can opener in my kit. Anyone has an extra?', 49.25975, -123.17397],
-					['update', greenMarkerImage, 'Pradeep Akula', './images/profile/pradeep.jpg', './community/pradeep-akula.html', 'I have an extra sleeping bag, if anyone needs one!', 49.26038, -123.17390]
+					['help', redMarkerImage, 'Seth Williams', '../images/profile/seth.jpg', '../community/seth-williams.html', "The wall outside our room has caved, and we are trapped in here!", 49.261411, -123.173102],
+					['update', greenMarkerImage, 'James Wilson', '../images/profile/james.jpg', '../community/james-wilson.html', 'Watch out everyone, a tree has blocked this road', 49.26086, -123.17205],
+					['update', greenMarkerImage, 'Kayla Taylor', '../images/profile/kayla.jpg', '../community/kayla-taylor.html', 'Going to drive down to the store for stuff. Anyone needs a lift?', 49.26034, -123.17049],
+					['update', greenMarkerImage, 'Janice Wong', '../images/profile/piper.jpg', '../community/janice-wong.html', "At least this means I can miss work tomorrow?", 49.25949, -123.17206],
+					['update', greenMarkerImage, 'Rosa Sanchez', '../images/profile/rosa.png', '../community/rosa-sanchez.html', 'Just realized I forgot to pack a can opener in my kit. Anyone has an extra?', 49.25975, -123.17397],
+					['update', greenMarkerImage, 'Pradeep Akula', '../images/profile/pradeep.jpg', '../community/pradeep-akula.html', 'I have an extra sleeping bag, if anyone needs one!', 49.26038, -123.17390]
 				  ];
 	
 	// Array to hold list of marker and info window items

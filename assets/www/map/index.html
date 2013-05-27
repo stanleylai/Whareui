@@ -19,48 +19,8 @@
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.sidr.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
+	<script src="maps.js"></script>
 	
-	<!-- Script -->
-	<script>
-		// Init GMaps
-		function initialize() {
-			var myLoc = new google.maps.LatLng(49.255082, -123.104532);
-			
-			var mapOptions = {
-				center: myLoc,
-				zoom: 17,
-				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,				
-			};
-			
-			// Init GMaps var
-			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-			
-			// Current location marker icon
-			var currLocImage = "../images/curr-location-marker.svg";
-			
-			// Marker
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(49.255082, -123.104532),
-				map: map,
-				icon: currLocImage,
-				title: 'Current Location'
-			});
-		}
-		
-		$(document).ready(function() {
-			// Enable the visual refresh
-			google.maps.visualRefresh = true;
-			google.maps.event.addDomListener(window, 'load', initialize);
-			
-			// Enable sidr menu
-		    $('#open-menu').sidr({
-		      name: 'nav-menu',
-		      side: 'right',
-		      source: '#nav-panel'
-		    });		    
-		});
-    </script>
 </head>
 
 <body id="maps">
@@ -68,9 +28,7 @@
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
 		<nav><ul>
-			<a href="../profile/index.html">
-				<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
-			</a>
+			<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
 			
 			<a href="../index.html">
 				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
@@ -100,22 +58,20 @@
 				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
 			</a>
 			
-			<a href="../mesh/index.html">
-				<li class="mesh">
-					<img src="../images/icons/mesh-icon.svg">
-					<div>
-						<span>Mesh Network Available</span>
-						<strong>Connected to 12 Neighbours</strong>
-					</div>
-				</li>
-			</a>
+			<li class="mesh">
+				<img src="../images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
 			
 		</ul></nav>
 	</div> <!-- /nav-panel -->
-	
+
 	<!-- Header -->
 	<div id="header">
-	
+
 		<!-- Android action bar -->
 		<div class="action-bar child">
 			<a class="app-icon" data-rel="back" href="javascript:history.back()">
@@ -123,9 +79,11 @@
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
 			<h1>Map</h1>
-			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
-		</div><!-- /action-bar -->
-		
+			<a class="menu" id="open-menu" href="#open-menu">
+				<img src="../images/icons/menu-icon.svg">
+				<div class="new-marker circle">10</div>
+			</a>
+		</div><!-- /action-bar -->		
 	</div> <!-- /header -->
 	
 	<!--- Content Area -->
@@ -136,16 +94,6 @@
 
 	</div><!-- content -->
 		
-	<script>		
-		// Enable sidr menu
-		$(document).ready(function() {
-		    $('#open-menu').sidr({
-		      name: 'nav-menu',
-		      side: 'right',
-		      source: '#nav-panel'
-		    });
-		});
-	</script>
 </body>
 
 </html>

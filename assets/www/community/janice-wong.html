@@ -26,12 +26,17 @@
 		      name: 'nav-menu',
 		      side: 'right',
 		      source: '#nav-panel'
-		    });		    
+		    });
+		    
+		    // Filter menu toggle
+    		$( ".filter-toggle" ).click(function() {
+				$('div.filter').toggleClass( "show", 500, "easeOutSine" );
+			})
 		});
     </script>
 </head>
 
-<body id="posting" class="help-update help-911">
+<body id="community" class="text-update-post">
 
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
@@ -86,55 +91,44 @@
 				<img class="back" src="../images/icons/back-icon.svg">
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
-			<h1>New Post</h1>
+			<h1>Community</h1>
 			<a class="menu" id="open-menu" href="#open-menu">
 				<img src="../images/icons/menu-icon.svg">
 				<div class="new-marker circle">10</div>
 			</a>
 		</div><!-- /action-bar -->		
-		
-		<!-- Page Nav -->
-		<div class="posting-header">
-			<img class="info" src="../images/icons/info-icon.svg">
-			<h1>Request Police Help</h1>
-			<img class="q" src="../images/icons/q-icon.svg">
-		</div> <!-- /page-nav -->
-		
 	</div> <!-- /header -->
-		
+	
 	<!--- Content Area -->
 	<div id="content">
-		<div class="emergency">
-			<p>Is this a 911 Emergency? <a class="meaning" href="#">What does this mean?</a></p>
-			<a class="switch" href="./help.html"><img src="../images/android-switch-yes.svg"></a>
-		</div> <!-- /911 -->
+								
+		<!-- Janice Wong text update -->
+		<div class="post text">
+			<div class="head">
+				<img src="../images/profile/piper.jpg">
+				<strong>Janice Wong</strong> posted a text update.
+			</div> <!-- /head -->
+			
+			<div class="content">
+				<p>At least this means I can miss work tomorrow?</p>
+			</div> <!-- /content -->
+			
+			<div class="meta">
+				<div class="time">About 1 hour ago.</div>
+				<div class="comment-count">0 comments</div>
+			</div> <!-- /meta -->
+			
+		</div> <!-- /post -->
 		
-		<div class="type">
-			<select>
-				<option class="selected">What crime are your reporting?</option>
-				<option>Arson</option>
-				<option>Assault</option>
-				<option>Looting</option>
-				<option>Nuisance</option>
-				<option>Riot</option>
-				<option>Robbery</option>
-				<option>Scam</option>
-				<option>Trespassing</option>
-				<option>Other</option>
-			</select>
-		</div> <!-- /type -->
-		
-		<textarea placeholder="Tell us how we might assist."></textarea>
-		<div class="meta">
-			<div class="camera"><img src="../images/icons/camera-icon.svg"></div>
-			<div class="location"><img src="../images/icons/compass-icon.svg"></div>
-			<div class="mic"><img src="../images/icons/mic-icon.svg"></div>
-			<a href="./911-4-police.html"><div class="submit">Post</div></a>
-		</div> <!-- /meta -->
-		
-		<div class="pagination">
-			Step 3 of 4
-		</div> <!-- /pagination -->
+		<!-- Comments -->
+		<div class="comments">
+			<div class="comment input">
+				<img src="../images/profile/jacob-brown.png">
+				<textarea placeholder="Say Something!"></textarea>
+			</div> <!-- /comment-input -->
+			<div class="comment-btn button">Add Comment</div>
+		</div> <!-- /comments -->
+						
 	</div><!-- /content -->
 </body>
 

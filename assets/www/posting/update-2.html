@@ -36,9 +36,7 @@
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
 		<nav><ul>
-			<a href="../profile/index.html">
-				<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
-			</a>
+			<li><img class="profile" src="../images/profile/jacob-brown.png"> <span>Jacob Brown</span></li>
 			
 			<a href="../index.html">
 				<li><img src="../images/icons/home-icon.svg"> <span>Home</span></li>
@@ -68,15 +66,13 @@
 				<li><img src="../images/icons/settings-icon.svg"> <span>Settings</span></li>
 			</a>
 			
-			<a href="../mesh/index.html">
-				<li class="mesh">
-					<img src="../images/icons/mesh-icon.svg">
-					<div>
-						<span>Mesh Network Available</span>
-						<strong>Connected to 12 Neighbours</strong>
-					</div>
-				</li>
-			</a>
+			<li class="mesh">
+				<img src="../images/icons/mesh-icon.svg">
+				<div>
+					<span>Mesh Network Available</span>
+					<strong>Connected to 12 Neighbours</strong>
+				</div>
+			</li>
 			
 		</ul></nav>
 	</div> <!-- /nav-panel -->
@@ -86,13 +82,16 @@
 
 		<!-- Android action bar -->
 		<div class="action-bar child">
-			<a class="app-icon" data-rel="back" href="../community/index.html">
+			<a class="app-icon" data-rel="back" href="javascript:history.back()">
 				<img class="back" src="../images/icons/back-icon.svg">
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
 			<h1>New Post</h1>
-			<a class="menu" id="open-menu" href="#open-menu"><img src="../images/icons/menu-icon.svg"></a>
-		</div><!-- /action-bar -->
+			<a class="menu" id="open-menu" href="#open-menu">
+				<img src="../images/icons/menu-icon.svg">
+				<div class="new-marker circle">10</div>
+			</a>
+		</div><!-- /action-bar -->		
 		
 		<!-- Posting Header -->
 		<div class="posting-header">
