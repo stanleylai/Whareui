@@ -17,47 +17,10 @@
 	<script src="../js/jquery-1.9.1.min.js"></script>
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.sidr.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
 	
 	<!-- Script -->
-	<script>
-		// Init GMaps
-		function initialize() {
-			var myLoc = new google.maps.LatLng(49.255082, -123.104532);
-			
-			var mapOptions = {
-				center: myLoc,
-				zoom: 17,
-				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				
-				// disable interaction
-				draggable: false,
-				zoomControl: false,
-				scrollwheel: false,
-				disableDoubleClickZoom: true
-			};
-			
-			// Init GMaps var
-			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-			
-			// Current location marker icon
-			var currLocImage = "../images/curr-location-marker.svg";
-			
-			// Marker
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(49.255082, -123.104532),
-				map: map,
-				icon: currLocImage,
-				title: 'Current Location'
-			});
-		}
-		
-		$(document).ready(function() {
-			// Enable the visual refresh
-			google.maps.visualRefresh = true;
-			google.maps.event.addDomListener(window, 'load', initialize);
-			
+	<script>		
+		$(document).ready(function() {			
 			// Enable sidr menu
 		    $('#open-menu').sidr({
 		      name: 'nav-menu',
@@ -109,7 +72,7 @@
 
 		<!-- Android action bar -->
 		<div class="action-bar child">
-			<a class="app-icon" data-rel="back" href="javascript:history.back()">
+			<a class="app-icon" data-rel="back" href="../index.html">
 				<img class="back" src="../images/icons/back-icon.svg">
 				<img src="../images/icons/whareui-logo.svg">
 			</a>
@@ -128,27 +91,18 @@
 		
 	<!--- Content Area -->
 	<div id="content">
-		<!-- 911 Emergency -->
-		<div class="emergency">
-			<p>Is this a 911 Emergency? <a class="meaning" href="#">What does this mean?</a></p>
-			<a class="switch" href="./help.html"><img src="../images/android-switch-yes.svg"></a>
-		</div> <!-- /emergency -->
-		
-		<!-- GMaps -->
-		<div id="map-canvas"></div>
-		
+					
 		<!-- Confirmation -->
-		<div class="text">
-			<h1>Is this the Location of your Emergency?</h1>
-			<p class="sub-text">75 East 17th Ave</p>
-			<a href="./911-2.html"><div class="button yes">Yes</div></a>
-			<a href="#"><div class="button no">No</div></a>
+		<div class="text ticket">
+			<h1>Your Emergency has been reported.</h1>
+			<p class="sub-text">Emergency services have been notified, and officers dispatched. A 911 operator may contact you if further information is needed.</p>
+			<p class="sub-text small">Your name, location and other details have been securely shared.</p>
 		</div> <!-- /confirm -->
 		
 		<div class="pagination">
-			Step 1 of 5
+			Step 4 of 4
 		</div> <!-- /pagination -->
-		
+				
 	</div><!-- /content -->
 </body>
 
