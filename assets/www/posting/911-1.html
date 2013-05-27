@@ -17,21 +17,58 @@
 	<script src="../js/jquery-1.9.1.min.js"></script>
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.sidr.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
 	
 	<!-- Script -->
-	<script>		
-		$(document).ready(function() {			
+	<script>
+		// Init GMaps
+		function initialize() {
+			var myLoc = new google.maps.LatLng(49.255082, -123.104532);
+			
+			var mapOptions = {
+				center: myLoc,
+				zoom: 17,
+				disableDefaultUI: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				
+				// disable interaction
+				draggable: false,
+				zoomControl: false,
+				scrollwheel: false,
+				disableDoubleClickZoom: true
+			};
+			
+			// Init GMaps var
+			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			
+			// Current location marker icon
+			var currLocImage = "../images/curr-location-marker.svg";
+			
+			// Marker
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(49.255082, -123.104532),
+				map: map,
+				icon: currLocImage,
+				title: 'Current Location'
+			});
+		}
+		
+		$(document).ready(function() {
+			// Enable the visual refresh
+			google.maps.visualRefresh = true;
+			google.maps.event.addDomListener(window, 'load', initialize);
+			
 			// Enable sidr menu
 		    $('#open-menu').sidr({
 		      name: 'nav-menu',
 		      side: 'right',
 		      source: '#nav-panel'
-		    });
+		    });		    
 		});
     </script>
 </head>
 
-<body id="posting" class="help-update">
+<body id="posting" class="help-update help-911">
 
 	<!-- Navigation Panel -->
 	<div id="nav-panel">
@@ -91,16 +128,27 @@
 		
 	<!--- Content Area -->
 	<div id="content">
+		<!-- 911 Emergency -->
 		<div class="emergency">
 			<p>Is this a 911 Emergency? <a class="meaning" href="#">What does this mean?</a></p>
-			<a class="switch" href="./911-1.html"><img src="../images/android-switch-no.svg"></a>
-		</div> <!-- /911 -->
-		<textarea placeholder="Tell us how we might assist."></textarea>
-		<div class="meta">
-			<div class="camera"><img src="../images/icons/camera-icon.svg"></div>
-			<div class="location"><img src="../images/icons/compass-icon.svg"></div>
-			<div class="submit">Post</div>
-		</div> <!-- /meta -->
+			<a class="switch" href="./help.html"><img src="../images/android-switch-yes.svg"></a>
+		</div> <!-- /emergency -->
+		
+		<!-- GMaps -->
+		<div id="map-canvas"></div>
+		
+		<!-- Confirmation -->
+		<div class="confirm">
+			<h1>Is this the Location of your Emergency?</h1>
+			<p class="curr-address">75 East 17th Ave</p>
+			<a href="./911-2.html"><div class="button yes">Yes</div></a>
+			<a href="#"><div class="button no">No</div></a>
+		</div> <!-- /confirm -->
+		
+		<div class="pagination">
+			Step 1 of 5
+		</div> <!-- /pagination -->
+		
 	</div><!-- /content -->
 </body>
 

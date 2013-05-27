@@ -107,7 +107,7 @@ textarea {
 	border: 1px solid $light-grey;
 }
 
-h1 { font-size: 36px; }
+h1 { font-size: 36px; font-weight: normal; }
 
 #header {
 	position: absolute;
@@ -120,7 +120,7 @@ h1 { font-size: 36px; }
 	position: relative;
 	top: 100px;
 	width: 100%;
-	min-height: 1030px; 
+	min-height: 932px; 
 	padding: 40px;
 	
 	@include single-box-shadow($black, 0, 0, 65px, 0, false);
@@ -568,6 +568,44 @@ h1 { font-size: 36px; }
 				margin-left: 0.5em;
 			}
 			.switch { float: right; }
+		}
+	}
+	
+	// 911 Request
+	&.help-911 {
+		#map-canvas {
+			border: 1px solid $light-grey;
+			width: 100%;
+			height: 350px;
+		}
+		.confirm {
+			@include regular-font(32px);
+			color: $dark-grey;
+			text-align: center;
+			margin-top: 2em;
+			h1 { margin-bottom: 0.35em; }
+			.curr-address { @include thin-font(32px); margin: 0; }
+			
+			.button {
+				@include regular-font(32px);
+				color: $white;
+				display: inline-block;
+				margin-top: 2em;
+				padding: 1em 2em;
+				
+				&.yes { background-color: $green; margin-right: 0.25em; }
+				&.no { background-color: $red; margin-left: 0.25em; }
+			}
+		}
+		
+		.pagination {
+			position: absolute;
+			bottom: 1em;
+			left: 0; right: 0;
+			
+			@include thin-font(24px);
+			color: $light-grey;
+			text-align: center;
 		}
 	}
 }
