@@ -589,12 +589,52 @@ h1 { font-size: 36px; font-weight: normal; }
 }
 
 /****************************************************************
-* Main Page
+* Map Page
 ****************************************************************/
 
 #maps {
 	#content { padding: 0; }
 	#map-canvas { height: 932px; }
+}
+
+/****************************************************************
+* News Page
+****************************************************************/
+
+#news {
+	#content h1 {
+		@include regular-font(24px);
+		.new-marker {
+			display: inline-block;
+			width: 40px;
+			vertical-align: baseline;
+			margin-right: 0.4em;
+		}
+	}
+	.news-item {
+		overflow: auto;
+		padding: 0.75em;
+		border: 1px solid $light-grey;
+		border-bottom: none;
+		a, a:visited, a:active, a:hover { text-decoration: underline; }
+		h1 { @include regular-font(28px); margin: 0; }
+		.cover-image {
+			position: relative;
+			float: left;
+			margin-right: 1em;
+			img { width: 250px; height: auto; }
+			.new-marker {
+				position: absolute;
+				bottom: 17px; left: 10px;
+			}
+		}
+		p { 
+			&.meta { @include thin-font(18px); margin-top: 0.5em; }
+		}
+		
+		// Close bottom border for last news item
+		&:last-child { border: 1px solid $light-grey; }
+	}
 }
 
 /****************************************************************

@@ -14,28 +14,12 @@
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
 
 	<!-- JS -->
-	<script src="js/cordova-2.7.0.js"></script>
+	<!-- <script src="js/cordova-2.7.0.js"></script> -->
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.sidr.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script> <!-- Google Maps -->
-	<!-- Init Gmaps -->
-	<script>
-		// Enable the visual refresh
-		google.maps.visualRefresh = true;
-
-		function initialize() {
-			var mapOptions = {
-				center: new google.maps.LatLng(49.255082, -123.104532),
-				zoom: 17,
-				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-		}
-		
-		google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCAzTpCBI96NUOsN3julowPtJJHztQO6ZQ&sensor=false"></script>
+	<script src="js/maps.js"></script>
 </head>
 
 <body id="landing">
@@ -128,17 +112,7 @@
 			</a>
 		</div> <!-- /controls -->
 	</div><!-- content -->
-		
-	<script>		
-		// Enable sidr menu
-		$(document).ready(function() {
-		    $('#open-menu').sidr({
-		      name: 'nav-menu',
-		      side: 'right',
-		      source: '#nav-panel'
-		    });
-		});
-	</script>
+			
 </body>
 
 </html>
